@@ -1,3 +1,8 @@
+<!-- - Click through to the border countries on the detail page -->
+<!-- - Toggle the color scheme between light and dark mode *(optional)* -->
+
 <app-header></app-header>
-<app-search></app-search>
-<p>home works!</p>
+<app-search (searchCountryEvent)="onSearchCountryEvent($event)" (searchRegionEvent)="onSearchRegionEvent($event)">
+</app-search>
+<app-country-card *ngFor="let country of countryData; index as i" [countryRef]="country"
+   (countryDetail)="getAndSetDetailPage($event)"></app-country-card>

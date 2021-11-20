@@ -1,1 +1,9 @@
-<p>country-card works!</p>
+<div class="main-container">
+   <div class="titles-container">
+      <p class="common-name">{{ countryRef?.name.common }}</p>
+      <p class="official-name">{{ countryRef?.name.official }}</p>
+   </div>
+   <img src="{{ countryRef?.flags.png }}" alt="National Flag of {{ countryRef?.name.common }}">
+   <hr>
+   <button style="cursor: pointer;" class="learn-more-btn" (click)="emitCountryDetail(countryRef)">Learn More</button>
+</div>

@@ -1,1 +1,18 @@
-<p>country-details works!</p>
+<div class="country-container">
+   <div class="names">
+      <p class="name-common">{{ country?.name.common }}</p>
+      <p class="name-official">{{ country?.name.official }}</p>
+   </div>
+   <img src="{{ country.flags.png }}" alt="National Flag">
+   <div class="details-container">
+      <p>Capital: {{ country.capital }}</p>
+      <p>Language(s): {{ getLanguages() }}</p>
+   </div>
+   <div *ngIf="hasBorderCountries" class="border-countries">
+      <p>Exploring bordering countries</p>
+      <a *ngFor="let borderCountry of borderCountries" style="cursor: pointer;"
+         (click)="onNavToBorderCountries(borderCountry)">{{ borderCountry
+         }}</a>
+   </div>
+   <button (click)="onBackToCountries()">Back</button>
+</div>
