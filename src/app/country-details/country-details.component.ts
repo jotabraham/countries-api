@@ -18,11 +18,8 @@ export class CountryDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  // ATTN:ADD - country name in route
-
   ngOnInit(): void {
     this.country = this.countryService.countryDetail;
-    // ^^Not allowing for navigation to border countries
     console.log(this.country);
     this.getLanguages();
     this.confirmBorderCountries();
@@ -43,16 +40,16 @@ export class CountryDetailsComponent implements OnInit {
       this.hasBorderCountries = true;
     }
 
-    this.borderCountries.forEach((borderCountry) => {
-      let borderNames: string[] = [];
-      console.log(this.countryService.countries);
-      // this.countryService.countries.find((country: any) => {
-      //   let foundCountry = country.cioc === borderCountry;
-      //   console.log(foundCountry);
-      //   // if (borderCountry === country.name.common) {
-      //   // }
-      // });
-    });
+    // this.borderCountries.forEach((borderCountry) => {
+    //   let borderNames: string[] = [];
+    //   console.log(this.countryService.countries);
+    //   // this.countryService.countries.find((country: any) => {
+    //   //   let foundCountry = country.cioc === borderCountry;
+    //   //   console.log(foundCountry);
+    //   //   // if (borderCountry === country.name.common) {
+    //   //   // }
+    //   // });
+    // });
   };
 
   onNavToBorderCountries = (countryCode: string) => {
@@ -61,6 +58,6 @@ export class CountryDetailsComponent implements OnInit {
   };
 
   onBackToCountries = () => {
-    this.router.navigate(["../"], { relativeTo: this.route });
+    this.router.navigate(["/home"]);
   };
 }

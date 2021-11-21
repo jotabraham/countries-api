@@ -6,9 +6,10 @@ import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
   { path: "country-card", component: CountryCardComponent },
   { path: "country-details/:country", component: CountryDetailsComponent },
+  { path: "", redirectTo: "/", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent },
 ];
 
@@ -17,5 +18,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-// BUILT OUT ROUTES to pass data and see country in URL
